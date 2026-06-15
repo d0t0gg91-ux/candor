@@ -1,6 +1,6 @@
 # Grounding: where the personas come from
 
-Candor's four work-mode personas are not invented dispositions. Each one is a trait
+Candor's eight work-mode personas are not invented dispositions. Each one is a trait
 profile drawn from established personality-science frameworks, chosen because its
 characteristic working style is a good fit for a particular kind of task - and because
 that same style tends to be naturally low in the behaviors candor is trying to reduce
@@ -28,21 +28,20 @@ The personas are built from four overlapping, publicly documented models of pers
 1. **The Five-Factor Model (Big Five / NEO).** Five trait domains - Openness,
    Conscientiousness, Extraversion, Agreeableness, Neuroticism - each broken into six
    finer **facets** (30 in total, e.g. _Straightforwardness_, _Deliberation_,
-   _Self-Discipline_, _Compliance_, _Ideas_, _Aesthetics_). This is the substrate: the
-   facets are the actual behavioral dials each persona turns.
+   _Self-Discipline_, _Compliance_, _Trust_, _Ideas_, _Aesthetics_). This is the
+   substrate: the facets are the actual behavioral dials each persona turns.
 2. **The 16-type model** (the Myers-Briggs-style four-axis system, plus an
-   Assertive/Turbulent identity axis). A familiar shorthand layered on the Big Five:
-   high Extraversion -> E, high Openness -> N, low Agreeableness -> T, high
-   Conscientiousness -> J.
+   Assertive/Turbulent identity axis, and the four role families - Analyst, Diplomat,
+   Sentinel, Explorer). A familiar shorthand layered on the Big Five.
 3. **The twelve archetypes** (Jung's archetypes as popularized for brand and character
-   work - Sage, Ruler, Creator, Explorer, and so on). Each archetype is a recognizable
-   "way of being in the work" with a core motivation.
+   work - Sage, Ruler, Creator, Explorer, Magician, and so on). Each archetype is a
+   recognizable "way of being in the work" with a core motivation.
 4. **The Predictive Index four-drive model** (Dominance, Extraversion, Patience,
-   Formality, with named reference profiles like Strategist and Scholar). A
+   Formality, with named reference profiles like Strategist, Scholar, and Guardian). A
    work-behavior lens that maps cleanly onto the same traits.
 
 Because all four describe the same underlying space, a single persona can be expressed
-in all four vocabularies at once - which is how each candor mode is specified.
+in several of these vocabularies at once - which is how each candor mode is specified.
 
 ## Method
 
@@ -51,11 +50,11 @@ personality-assessment project that implements a scoring engine over these frame
 (Big Five facets feeding derivations into the 16-type, archetype, and Predictive Index
 models). Working through that engine made the trait-to-behavior relationships concrete:
 which facets, when high or low, push toward directness, analytical rigor, divergent
-creativity, or disciplined execution.
+creativity, disciplined execution, or vigilant skepticism.
 
 Candor keeps the _public-framework_ layer of that work and leaves the project-specific
 scoring internals out - what matters for a behavioral skill is the trait reasoning, not
-any particular numeric model. Three dials do most of the work:
+any particular numeric model. A few dials do most of the work:
 
 - **Low Agreeableness (esp. low Compliance, high Straightforwardness)** -> directness;
   the willingness to hold a position and give frank assessments. This is the core
@@ -64,25 +63,36 @@ any particular numeric model. Three dials do most of the work:
   liability for open-ended exploration.
 - **High Openness** -> breadth, novelty, abstraction; good for ideation and creative
   work, less relevant to mechanical execution.
+- **Low Trust** -> healthy skepticism of inputs and assumptions; the lever behind
+  security review and debugging.
 
-## The four modes
+## The work modes
 
-| Mode              | Type   | Archetype | PI profile      | Signature traits                                                                                                    | Why it fits                                                                                                                                                               |
-| ----------------- | ------ | --------- | --------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Coding**        | INTJ-A | Ruler     | Strategist      | High Conscientiousness (Competence, Order, Self-Discipline, Deliberation), high Straightforwardness, low Compliance | Closure-seeking discipline is exactly what shipping correct code needs; low Compliance keeps reviews honest under pushback. The Ruler "sets the frame, then fills it in." |
-| **Logical**       | INTP-A | Sage      | Scholar         | High Openness (Ideas, Values), high Deliberation, low Compliance, low default Trust in claims                       | Reasoning quality depends on _not_ closing early. The Sage holds the question open; low Compliance keeps a conclusion from caving to social pressure.                     |
-| **Creative**      | INFP-A | Creator   | (collaborative) | Highest Openness (Fantasy, Aesthetics, Feelings, Ideas, Values) plus enough Self-Discipline to finish               | Maximum imaginative reach, anchored by an internal standard of quality so feedback stays honest instead of encouraging.                                                   |
-| **Brainstorming** | ENTP-A | Explorer  | Maverick        | High Openness + high Extraversion (Assertiveness, Excitement-Seeking) over low closure pressure and low Compliance  | Divergence needs externalized, high-volume idea production that resists premature convergence; low Compliance makes the ideas genuinely challenge the frame.              |
+| Mode              | Type   | Archetype / role       | PI profile      | Signature traits                                                                  | Why it fits                                                                                                                                               |
+| ----------------- | ------ | ---------------------- | --------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Coding**        | INTJ-A | Ruler                  | Strategist      | high Conscientiousness, high Straightforwardness, low Compliance                  | Closure-seeking discipline is what shipping correct code needs; low Compliance keeps reviews honest under pushback.                                       |
+| **Logical**       | INTP-A | Sage                   | Scholar         | high Openness (Ideas, Values), high Deliberation, low Compliance                  | Reasoning quality depends on _not_ closing early; the Sage holds the question open and won't cave to social pressure.                                     |
+| **Creative**      | INFP-A | Creator                | (collaborative) | highest Openness, enough Self-Discipline to finish                                | Maximum imaginative reach, anchored by an internal quality standard so feedback stays honest, not encouraging.                                            |
+| **Brainstorming** | ENTP-A | Explorer               | Maverick        | high Openness + Extraversion, low closure pressure, low Compliance                | Divergence needs externalized, high-volume ideation that resists premature convergence and challenges the frame.                                          |
+| **Security**      | ISTJ-T | Sentinel (role)        | Guardian        | low Trust, high Order/Dutifulness/Deliberation, vigilance, attacker's imagination | Defensive work needs low-trust skepticism and threat-modeling; the Sentinel family is literally the security/stability disposition. Defensive scope only. |
+| **Debugging**     | ISTP-A | the Detective          | Operator        | low Trust in assumptions, high Deliberation and Ideas, low Self-Consciousness     | Finding a real cause needs repro-first discipline and the willingness to suspect your own recent change before blaming the tools.                         |
+| **Architecture**  | INTJ-A | Magician               | Strategist      | high Ideas / Deliberation / Competence, low Compliance                            | Design altitude needs explicit trade-offs, failure-mode thinking, the nerve to commit to one recommendation, and to challenge a bad requirement.          |
+| **Writing**       | ENFJ-A | Mentor (Diplomat role) | Persuader       | reader-modeling, high Straightforwardness and Order                               | Clear explanation needs audience-modeling (a Diplomat strength), with the candor overlay keeping it from fake-reassurance.                                |
 
-Each mode's `SKILL.md` translates its trait signature into concrete behavioral
-directives and a before/after example.
+A note on the mappings: the first four and _Debugging_/_Architecture_ map cleanly onto a
+single Jungian archetype; _Security_ and _Writing_ are anchored instead on their 16-type
+role family (Sentinel, Diplomat) and Predictive-Index profile (Guardian, Persuader),
+which fit those dispositions more precisely than forcing a single archetype would. Each
+mode's `SKILL.md` translates its trait signature into concrete behavioral directives and a
+before/after example.
 
 ## The shared core, and why it's calibrated
 
-Underneath all four sits `candor-core`. Its job is to counter the specific ways an
+Underneath all eight sits `candor-core`. Its job is to counter the specific ways an
 assistant becomes less useful: leading with validation before a correction, reversing a
 correct answer because the user pushed back (with no new evidence), hollow affirmations,
-reflexive caveats, false balance, and claiming success without verifying.
+reflexive caveats, false balance, padding a correct answer with unrequested detail, and
+claiming success without verifying.
 
 The deliberate counterweight is a set of **calibration guardrails**. Genuine agreement
 and sycophantic agreement are different things, and an assistant that suppresses _all_
@@ -102,6 +112,9 @@ Directness without that calibration is not the goal.
   for working styles, not as claims about human psychology.
 - **The mode boundaries are fuzzy.** Real tasks blend modes. The skills are written to
   layer over the shared core rather than to be mutually exclusive.
+- **The benchmark is small.** See [evals/RESULTS.md](evals/RESULTS.md): the effect is
+  real but measured on 20 prompts against one model, and the modern base model is already
+  fairly candid, so the headline gains are modest and concentrated in form and framing.
 
 ## Further reading
 

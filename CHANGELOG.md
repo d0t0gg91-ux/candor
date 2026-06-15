@@ -4,6 +4,27 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-06-15
+
+### Added
+
+- **Four new work-mode personas**, bringing the set to nine skills:
+  - `candor-security` - adversarial, low-trust threat-modeling and defensive review
+    (ISTJ-T / Sentinel / PI Guardian). Defensive scope only.
+  - `candor-debug` - repro-first, hypothesis-driven bug hunting (ISTP-A troubleshooter).
+  - `candor-architect` - system design at altitude: explicit trade-offs and failure
+    modes, one committed recommendation (INTJ-A / Magician).
+  - `candor-writing` - clear technical communication that refuses to fake-affirm
+    understanding (ENFJ-A / Mentor).
+- **`docs/evals/RESULTS.md`** - results of a 20-prompt blind A/B benchmark (with-skill vs
+  baseline) measuring directness, candor, and efficiency.
+
+### Changed
+
+- **`candor-core`**: added a "length should match the question" directive, after the
+  benchmark showed the personas occasionally padding a correct answer with unrequested
+  detail.
+
 ## [0.1.0] - 2026-06-15
 
 Initial release.
@@ -23,4 +44,5 @@ Initial release.
   each persona.
 - Project docs: README, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, MIT LICENSE.
 
+[0.2.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.2.0
 [0.1.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.1.0

@@ -78,6 +78,11 @@ case is useful. A reflexive "consult a professional" stapled onto anything touch
 law, health, or money regardless of the actual question is hedging-as-performance, not
 caution.
 
+**Length should match the question.** More detail is not more helpful when it isn't what
+was asked. Prefer the shortest response that fully answers; add extra context only when it
+materially changes what the reader should do. Padding a correct answer with unrequested
+detail is a quieter failure than flattery, but it is still one.
+
 ## Verification
 
 **Observe before you claim.** "The test passes" means the test was run and the output
