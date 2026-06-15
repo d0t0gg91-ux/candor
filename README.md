@@ -7,16 +7,16 @@ flattery, hedging, and "this should work" for directness, verification, and per-
 efficiency - and switches its style to fit the kind of work you're doing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.3.1)-orange.svg>)
-![Skills: 11](https://img.shields.io/badge/skills-11-blue.svg)
+![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.4.0)-orange.svg>)
+![Skills: 12](https://img.shields.io/badge/skills-12-blue.svg)
 
 ---
 
 ## What it is
 
 Candor is a Claude Code [plugin](https://code.claude.com/docs/en/plugins) containing
-eleven [skills](https://code.claude.com/docs/en/skills): one shared anti-sycophancy
-**core**, and ten **work-mode personas** that tune Claude's behavior for the task in
+twelve [skills](https://code.claude.com/docs/en/skills): one shared anti-sycophancy
+**core**, and eleven **work-mode personas** that tune Claude's behavior for the task in
 front of it. The skills load automatically when they're relevant, and you can also
 invoke any of them by name.
 
@@ -27,7 +27,7 @@ success without checking - while keeping it genuinely helpful. Candor is **not**
 instruction to be harsh; a whole section of the core skill exists to keep directness
 from tipping into manufactured contrarianism.
 
-## The eleven skills
+## The twelve skills
 
 | Skill                 | When it engages                                                      | Persona / disposition                                                                                                                                         |
 | --------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -42,6 +42,7 @@ from tipping into manufactured contrarianism.
 | **candor-writing**    | Docs, explanations, README/tutorial writing, editing prose           | ENFJ-A / Mentor - models the reader, but refuses to fake-affirm understanding                                                                                 |
 | **candor-decide**     | Prioritization, scoping, go/no-go, what to cut                       | ESTJ-A / Executive - ruthless prioritization; leads with the call; says no                                                                                    |
 | **candor-data**       | Stats, metrics, A/B tests, ML eval, "the data shows..."              | ISTJ-A / Analyzer - correlation isn't causation; checks the sample; resists motivated reading                                                                 |
+| **candor-curator**    | Auditing docs/wikis for staleness, reconciling, organizing knowledge | ISTJ-A / Archivist - keeps the knowledge base true, current, and findable; flags what's gone stale                                                            |
 
 Each persona is grounded in established personality-science frameworks rather than
 invented from scratch - see [docs/grounding.md](docs/grounding.md) for the full
@@ -49,14 +50,15 @@ rationale and the trait signatures behind each mode.
 
 ## Does it actually work?
 
-A 20-prompt blind A/B benchmark (each prompt answered with the skill active and without
-it, then graded blind) is summarized in [docs/evals/RESULTS.md](docs/evals/RESULTS.md),
-and the prompts + scoring scripts are committed under [evals/](evals/) so you can audit
-it. Short version: on deliberately adversarial sycophancy/efficiency prompts the modern
-base model is _already_ strong, so the binary "did it pass" gap is small; but in blind
-head-to-head judging the candor responses were preferred about 3-to-1, mainly for leading
-with the point, resisting false balance, and not caving to pushback. The honest caveats -
-including where candor occasionally over-explains - are in the report.
+A blind A/B benchmark (each prompt answered with the skill active and without it, then
+graded blind) is summarized in [docs/evals/RESULTS.md](docs/evals/RESULTS.md), and the
+prompts + scoring scripts are committed under [evals/](evals/) so you can audit it. Short
+version: on deliberately adversarial sycophancy/efficiency prompts the modern base model
+is _already_ strong, so the binary "did it pass" gap is small; but in blind head-to-head
+judging the candor responses were preferred about 3-to-1, mainly for leading with the
+point, resisting false balance, and not caving to pushback. A 33-query trigger-routing
+test routed every query to the intended skill (33/33). The honest caveats - including
+where candor occasionally over-explains - are in the report.
 
 ## Install
 
@@ -83,8 +85,8 @@ After installing, restart or reload so the skills register.
 
 Once installed, the skills are **auto-invocable**: Claude loads the relevant mode based
 on what you're doing (reviewing code pulls in `candor-coding`, a security question pulls
-in `candor-security`, a stats question pulls in `candor-data`, and so on). The core
-baseline applies whenever directness is warranted.
+in `candor-security`, "is this wiki still accurate?" pulls in `candor-curator`, and so
+on). The core baseline applies whenever directness is warranted.
 
 You can also invoke any mode explicitly - plugin skills are namespaced by the plugin
 name:
@@ -92,7 +94,7 @@ name:
 ```text
 /candor:candor-core        /candor:candor-security    /candor:candor-decide
 /candor:candor-coding      /candor:candor-debug       /candor:candor-data
-/candor:candor-logic       /candor:candor-architect
+/candor:candor-logic       /candor:candor-architect   /candor:candor-curator
 /candor:candor-creative    /candor:candor-writing
 /candor:candor-brainstorm
 ```
@@ -127,7 +129,7 @@ See [SECURITY.md](SECURITY.md) for the full posture and how to report an issue.
 
 ## Status
 
-**v0.3.0 - experimental.** A prompt-level behavioral design with a committed benchmark
+**v0.4.0 - experimental.** A prompt-level behavioral design with a committed benchmark
 behind it (see the results report), but not large-scale validated. Expect to tune the
 personas to your own taste. Feedback and pull requests are welcome - see
 [CONTRIBUTING.md](CONTRIBUTING.md).

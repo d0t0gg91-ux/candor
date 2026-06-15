@@ -118,20 +118,28 @@ original run - `candor-security`, `candor-debug`, `candor-architect`, `candor-de
 So the v0.3.0 modes behave like the originals: no measurable gap on raw correctness
 (the base model is strong), a consistent ~80% edge in head-to-head quality.
 
+`candor-curator` (v0.4.0) was spot-checked the same way: with-skill **2/2** vs baseline
+**0.625** - the largest binary gap in the suite, because the base model handles "does this
+stale page still look good?" worst of all, either punting for the file or (with repo
+access) confidently answering about the wrong thing.
+
 ## Trigger-routing accuracy
 
 After adding `candor-debug` and `candor-writing`, the `candor-coding`, `candor-logic`,
 and `candor-creative` descriptions were tightened so the right persona loads. To check
-that empirically, 33 labeled queries (3 per mode plus cross-mode near-misses and a few
-matching nothing specific) were each routed by a judge given the eleven real
+that empirically, 39 labeled queries (3 per mode plus cross-mode near-misses and a few
+matching nothing specific) were each routed by a judge given the twelve real
 descriptions: which single skill should auto-load?
 
-**Result: 33/33 correct (100%).** The confusion matrix is perfectly diagonal - every
+**Result: 39/39 correct (100%)** (re-run after `candor-curator` brought the set to
+twelve). The confusion matrix is perfectly diagonal - every
 near-miss routed to the intended skill: "review this code" -> coding (not debug); a
 failing CI test -> debug (not coding); novel feedback -> creative (not writing); API docs
 -> writing (not creative); "conversions went up 5%, did it work?" -> data (not decide);
 "is this endpoint safe?" -> security (not coding); "how should I structure the services?"
--> architect (not coding). The disambiguation holds.
+-> architect (not coding); "bring the stale doc in line with the current code" ->
+curator (not writing); "write a brand-new guide" -> writing (not curator). The
+disambiguation holds across all twelve skills.
 
 This is a _routing_ measure - a judge predicting which description matches - a faithful
 proxy for auto-triggering rather than the runtime mechanism itself. See the next note.

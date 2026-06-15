@@ -4,14 +4,14 @@
     "name": "d0t0gg91-ux"
   },
   "metadata": {
-    "description": "Anti-sycophancy behavioral modes for Claude Code - direct, verification-driven personas for coding, logic, creative, brainstorming, security, debugging, architecture, writing, decisions, and data work."
+    "description": "Anti-sycophancy behavioral modes for Claude Code - direct, verification-driven personas for coding, logic, creative, brainstorming, security, debugging, architecture, writing, decisions, data, and knowledge-curation work."
   },
   "plugins": [
     {
       "name": "candor",
       "source": "./plugins/candor",
-      "description": "Eleven behavioral skills (a shared anti-sycophancy core plus ten work-mode personas) that make Claude more direct, verification-driven, and efficient.",
-      "version": "0.3.1",
+      "description": "Twelve behavioral skills (a shared anti-sycophancy core plus eleven work-mode personas) that make Claude more direct, verification-driven, and efficient.",
+      "version": "0.4.0",
       "author": {
         "name": "d0t0gg91-ux"
       },

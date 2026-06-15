@@ -4,6 +4,17 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-06-15
+
+### Added
+
+- **`candor-curator`** - the knowledge-base curation persona (ISTJ-A / Archivist / PI
+  Controller): audits docs and wikis for staleness, reconciles contradictions, prunes
+  superseded content, preserves the audit trail rather than rewriting history, and keeps a
+  single source of truth in sync with reality. The third ISTJ-rooted "guardian" - alongside
+  security (systems) and data (evidence), it guards the knowledge itself. Brings the set to
+  twelve skills.
+
 ## [0.3.1] - 2026-06-15
 
 ### Added
@@ -82,6 +93,7 @@ Initial release.
   each persona.
 - Project docs: README, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, MIT LICENSE.
 
+[0.4.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.4.0
 [0.3.1]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.3.1
 [0.3.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.3.0
 [0.2.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.2.0

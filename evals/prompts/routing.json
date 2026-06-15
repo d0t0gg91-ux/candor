@@ -163,5 +163,35 @@
     "id": 32,
     "q": "can you just give me your honest, direct take without sugarcoating it?",
     "expected": "candor-core"
+  },
+  {
+    "id": 33,
+    "q": "is our onboarding wiki still accurate, or has it gone stale?",
+    "expected": "candor-curator"
+  },
+  {
+    "id": 34,
+    "q": "audit our internal docs and flag anything that's out of date",
+    "expected": "candor-curator"
+  },
+  {
+    "id": 35,
+    "q": "two of our wiki pages give different service counts - reconcile them and mark one canonical",
+    "expected": "candor-curator"
+  },
+  {
+    "id": 36,
+    "q": "the setup doc references a script we deleted - bring the doc in line with the current code",
+    "expected": "candor-curator"
+  },
+  {
+    "id": 37,
+    "q": "write a brand-new guide that explains our deployment process to new hires",
+    "expected": "candor-writing"
+  },
+  {
+    "id": 38,
+    "q": "our internal glossary has two conflicting definitions of 'active user' - reconcile them",
+    "expected": "candor-curator"
   }
 ]
