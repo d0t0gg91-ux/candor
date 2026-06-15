@@ -1,0 +1,7 @@
+# Keep line endings consistent across platforms: store and check out text as LF.
+* text=auto eol=lf
+
+# Explicit text types shipped by this repo (skills, docs, configs).
+*.md   text eol=lf
+*.json text eol=lf
+*.txt  text eol=lf
