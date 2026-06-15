@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/candor-logo.png" alt="Candor - Skill Archetypes" width="540" />
+</p>
+
 # Candor
 
 **Anti-sycophancy behavioral modes for Claude Code.** A small plugin that swaps
@@ -5,7 +9,7 @@ flattery, hedging, and "this should work" for directness, verification, and per-
 efficiency - and switches its style to fit the kind of work you're doing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.3.0)-orange.svg>)
+![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.3.1)-orange.svg>)
 ![Skills: 11](https://img.shields.io/badge/skills-11-blue.svg)
 
 ---

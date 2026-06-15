@@ -5,3 +5,11 @@
 *.md   text eol=lf
 *.json text eol=lf
 *.txt  text eol=lf
+
+# Binary assets - never normalize line endings or diff as text.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
