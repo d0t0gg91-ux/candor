@@ -5,15 +5,16 @@ flattery, hedging, and "this should work" for directness, verification, and per-
 efficiency - and switches its style to fit the kind of work you're doing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.2.0)-orange.svg>)
+![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.3.0)-orange.svg>)
+![Skills: 11](https://img.shields.io/badge/skills-11-blue.svg)
 
 ---
 
 ## What it is
 
 Candor is a Claude Code [plugin](https://code.claude.com/docs/en/plugins) containing
-nine [skills](https://code.claude.com/docs/en/skills): one shared anti-sycophancy
-**core**, and eight **work-mode personas** that tune Claude's behavior for the task in
+eleven [skills](https://code.claude.com/docs/en/skills): one shared anti-sycophancy
+**core**, and ten **work-mode personas** that tune Claude's behavior for the task in
 front of it. The skills load automatically when they're relevant, and you can also
 invoke any of them by name.
 
@@ -24,19 +25,21 @@ success without checking - while keeping it genuinely helpful. Candor is **not**
 instruction to be harsh; a whole section of the core skill exists to keep directness
 from tipping into manufactured contrarianism.
 
-## The nine skills
+## The eleven skills
 
 | Skill                 | When it engages                                                      | Persona / disposition                                                                                                                                         |
 | --------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **candor-core**       | Always-relevant baseline; honest-feedback requests                   | The shared rules: lead with the disagreement and the reason; don't fold without new evidence; verify before claiming; cut hollow affirmation; stay calibrated |
-| **candor-coding**     | Implementation, code review, refactors, failing builds/tests         | INTJ / Ruler - systematic, closure-seeking, blunt and specific code review                                                                                    |
-| **candor-logic**      | Analysis, argument evaluation, root-cause reasoning                  | INTP / Sage - premise-testing, evidence-first, resists premature closure                                                                                      |
-| **candor-creative**   | Writing, design, narrative, editing, art direction                   | INFP / Creator - imaginative reach with honest, values-grounded critique                                                                                      |
+| **candor-coding**     | Implementation, code review, refactors, PR/diff review               | INTJ / Ruler - systematic, closure-seeking, blunt and specific code review                                                                                    |
+| **candor-logic**      | Analysis, argument evaluation, reasoning a problem through           | INTP / Sage - premise-testing, evidence-first, resists premature closure                                                                                      |
+| **candor-creative**   | Original creative work: narrative, fiction, design, art direction    | INFP / Creator - imaginative reach with honest, values-grounded critique                                                                                      |
 | **candor-brainstorm** | Generating options, exploring a problem space, stress-testing a plan | ENTP / Explorer - divergent, challenges the framing, holds off on converging                                                                                  |
 | **candor-security**   | Security review, auth/crypto/input handling, secrets, permissions    | ISTJ-T / Sentinel - adversarial, low-trust, threat-modeling. _Defensive scope only_                                                                           |
 | **candor-debug**      | Bugs, crashes, failing/flaky tests, "why is this happening?"         | ISTP-A detective - repro-first, falsifiable hypotheses, suspect your own code first                                                                           |
 | **candor-architect**  | System/API design, choosing approaches, data modeling                | INTJ-A / Magician - explicit trade-offs, failure modes, one committed recommendation                                                                          |
 | **candor-writing**    | Docs, explanations, README/tutorial writing, editing prose           | ENFJ-A / Mentor - models the reader, but refuses to fake-affirm understanding                                                                                 |
+| **candor-decide**     | Prioritization, scoping, go/no-go, what to cut                       | ESTJ-A / Executive - ruthless prioritization; leads with the call; says no                                                                                    |
+| **candor-data**       | Stats, metrics, A/B tests, ML eval, "the data shows..."              | ISTJ-A / Analyzer - correlation isn't causation; checks the sample; resists motivated reading                                                                 |
 
 Each persona is grounded in established personality-science frameworks rather than
 invented from scratch - see [docs/grounding.md](docs/grounding.md) for the full
@@ -45,9 +48,10 @@ rationale and the trait signatures behind each mode.
 ## Does it actually work?
 
 A 20-prompt blind A/B benchmark (each prompt answered with the skill active and without
-it, then graded blind) is summarized in [docs/evals/RESULTS.md](docs/evals/RESULTS.md).
-Short version: on deliberately adversarial sycophancy/efficiency prompts the modern base
-model is _already_ strong, so the binary "did it pass" gap is small; but in blind
+it, then graded blind) is summarized in [docs/evals/RESULTS.md](docs/evals/RESULTS.md),
+and the prompts + scoring scripts are committed under [evals/](evals/) so you can audit
+it. Short version: on deliberately adversarial sycophancy/efficiency prompts the modern
+base model is _already_ strong, so the binary "did it pass" gap is small; but in blind
 head-to-head judging the candor responses were preferred about 3-to-1, mainly for leading
 with the point, resisting false balance, and not caving to pushback. The honest caveats -
 including where candor occasionally over-explains - are in the report.
@@ -77,15 +81,15 @@ After installing, restart or reload so the skills register.
 
 Once installed, the skills are **auto-invocable**: Claude loads the relevant mode based
 on what you're doing (reviewing code pulls in `candor-coding`, a security question pulls
-in `candor-security`, "let's brainstorm" pulls in `candor-brainstorm`, and so on). The
-core baseline applies whenever directness is warranted.
+in `candor-security`, a stats question pulls in `candor-data`, and so on). The core
+baseline applies whenever directness is warranted.
 
 You can also invoke any mode explicitly - plugin skills are namespaced by the plugin
 name:
 
 ```text
-/candor:candor-core        /candor:candor-security
-/candor:candor-coding      /candor:candor-debug
+/candor:candor-core        /candor:candor-security    /candor:candor-decide
+/candor:candor-coding      /candor:candor-debug       /candor:candor-data
 /candor:candor-logic       /candor:candor-architect
 /candor:candor-creative    /candor:candor-writing
 /candor:candor-brainstorm
@@ -107,8 +111,9 @@ treat candor as a strong, consistent nudge, not a guarantee.
 
 ## Safety and transparency
 
-- **No code execution.** The plugin ships only Markdown and JSON. It contains no hooks,
-  MCP servers, scripts, or executables.
+- **No code execution in the plugin.** It ships only Markdown and JSON - no hooks, MCP
+  servers, or executables. (The `scripts/` and `evals/` Python is repo tooling, run by
+  you or CI, never loaded as plugin behavior.)
 - **No permissions granted.** None of the skills declare `allowed-tools`, so installing
   candor does not give Claude any tool access it didn't already have.
 - **Auditable.** Every behavioral rule is in the `SKILL.md` files in plain language.
@@ -120,7 +125,7 @@ See [SECURITY.md](SECURITY.md) for the full posture and how to report an issue.
 
 ## Status
 
-**v0.2.0 - experimental.** A prompt-level behavioral design with an initial benchmark
+**v0.3.0 - experimental.** A prompt-level behavioral design with a committed benchmark
 behind it (see the results report), but not large-scale validated. Expect to tune the
 personas to your own taste. Feedback and pull requests are welcome - see
 [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -134,4 +139,4 @@ personas to your own taste. Feedback and pull requests are welcome - see
 The work-mode personas were derived from analysis across four established
 personality-science frameworks (the Five-Factor Model, the 16-type model, the twelve
 Jungian/brand archetypes, and the Predictive Index four-drive model). See
-[docs/grounding.md](docs/grounding.md) for sources and methodology.
+[docs/grounding.md](docs/grounding.md) for sources, methodology, and a trademark note.

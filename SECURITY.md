@@ -33,9 +33,9 @@ There is nothing hidden elsewhere.
 
 ## Supported versions
 
-| Version | Supported |
-| ------- | --------- |
-| 0.1.x   | Yes       |
+| Version      | Supported |
+| ------------ | --------- |
+| 0.x (latest) | Yes       |
 
 This is a pre-1.0 project; only the latest released version receives fixes.
 

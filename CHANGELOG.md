@@ -4,6 +4,27 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-06-15
+
+### Added
+
+- **Two more work-mode personas**, bringing the set to eleven skills:
+  - `candor-decide` - ruthless prioritization, scoping, and saying no (ESTJ-A / Executive).
+  - `candor-data` - skeptical reading of numbers, stats, and experiments (ISTJ-A / Analyzer).
+- **Eval harness** committed under `evals/` - the prompt sets and dependency-free scoring
+  scripts behind `docs/evals/RESULTS.md`, so the benchmark is reproducible.
+- **Repo automation**: `scripts/validate_repo.py` (stdlib-only structure/manifest check)
+  and a GitHub Actions workflow that runs it on push and pull requests.
+- **Contributor scaffolding**: issue templates (bug, persona proposal) and a PR template.
+- A **trademark / non-affiliation note** in `docs/grounding.md`.
+
+### Changed
+
+- **Disambiguated skill triggers** so the right persona loads: `candor-coding` no longer
+  claims debugging/failing-tests (now routed to `candor-debug`), `candor-creative` no
+  longer claims technical writing (now `candor-writing`), and `candor-logic` routes actual
+  code bugs to `candor-debug`.
+
 ## [0.2.0] - 2026-06-15
 
 ### Added
@@ -44,5 +65,6 @@ Initial release.
   each persona.
 - Project docs: README, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, MIT LICENSE.
 
+[0.3.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.3.0
 [0.2.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.2.0
 [0.1.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.1.0
