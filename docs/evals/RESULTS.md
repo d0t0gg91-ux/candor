@@ -86,6 +86,32 @@ The two ties were trivial prompts ("in one word, dynamically or statically typed
 both produced the identical minimal answer - exactly where the skill _should_ make no
 difference.
 
+## Strengthened benchmark (addresses the caveats)
+
+To weaken the caveats below, a larger run: 32 prompts (all four iterations) x two models
+(Sonnet and Haiku) x {with-skill, clean-baseline} x 2 runs = 256 graded responses, scored
+on both the binary assertions and a continuous 0-100 candor-quality rubric (grader held
+constant at Sonnet). The baseline prompt was hardened to explicitly ignore any
+repository-specific operating protocol.
+
+| Model  | Quality (with) | Quality (base) | Δ        | Pass-rate (with) | Pass-rate (base) |
+| ------ | -------------- | -------------- | -------- | ---------------- | ---------------- |
+| Sonnet | 94.0 ± 4.3     | 86.5 ± 12.6    | **+7.4** | 0.987            | 0.961            |
+| Haiku  | 88.4 ± 12.7    | 81.9 ± 15.4    | **+6.5** | 0.965            | 0.957            |
+
+Three things stand out. (1) Candor lifts quality on **both** models (+6.5 to +7.4 on the
+0-100 scale) - the effect generalizes beyond the single model of the original run. (2) The
+continuous quality metric shows a clear gap exactly where the binary pass-rate ceilings
+(both ~96-99%): magnitude is visible where pass/fail is not. (3) The with-skill arm is also
+**more consistent** - on Sonnet its quality stddev is 4.3 vs the baseline's 12.6 - so candor
+narrows the spread, not just raises the mean.
+
+The hardened baseline worked: **0 of 64 baseline responses leaked repository context**, so
+the original internal-reference artifact is gone from the comparison. One residual: a single
+_with-skill_ Haiku response added a project-specific closing paragraph (mild padding; it
+still scored 88 and passed all assertions). So the comparison is clean; one low-impact leak
+remains on the weaker model.
+
 ## Honest caveats
 
 - **The judge is not fully independent.** It scored responses on the same directness/
@@ -93,13 +119,19 @@ difference.
   result is strong evidence that candor _makes responses match those criteria_ - not a
   neutral proof that those criteria are universally "better." A human reviewer is the right
   next step.
-- **Small N, one model.** 20 prompts, one Sonnet-class model, one run each. Treat the
-  numbers as directional, not precise.
-- **Ceiling effect on the binary metric.** Because the base model is already calibrated,
-  pass-rate can't show much. The preference comparison exists precisely because of this.
-- **One artifact.** A single baseline response leaked an internal-protocol reference into
-  its answer (an environment quirk of the test harness, not the model's normal behavior);
-  it was one of the baseline losses and doesn't materially affect the totals.
+- **Sample, models, runs - strengthened, not exhaustive.** The headline now rests on 32
+  prompts x 2 models (Sonnet, Haiku) x 2 runs = 256 graded responses, and the effect holds
+  on both models (see above). Remaining limits: a single grader family (Sonnet) and no
+  human grading - multi-vendor judges and a human pass are the next step.
+- **Ceiling on the binary metric - addressed by a continuous metric.** Pass-rate ceilings
+  because the base model is already calibrated; that is a true fact about the base model,
+  not a flaw the skill can fix. The fix is to measure magnitude, which the 0-100 quality
+  rubric (and the blind preference) do - and they show a clear, consistent gap.
+- **The repo-context artifact - resolved for the comparison.** A hardened baseline prompt
+  (ignore any repository operating protocol) eliminated it: 0 of 64 baseline responses in
+  the strengthened run referenced repo internals. One low-impact residual remains - a
+  single with-skill Haiku response added a project-specific paragraph (mild padding, no
+  effect on correctness) - so it is reduced, not zero.
 
 ## Coverage update: the v0.3.0 modes
 

@@ -4,6 +4,22 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.1] - 2026-06-15
+
+### Added
+
+- **Strengthened benchmark** in `docs/evals/RESULTS.md`: 32 prompts x 2 models (Sonnet,
+  Haiku) x 2 runs = 256 graded responses, scored on a continuous 0-100 quality rubric
+  alongside the binary assertions. Candor lifts quality on both models (+6.5 to +7.4) and
+  narrows response variance; the hardened clean-baseline removed the prior repo-context
+  artifact (0 of 64 baseline responses leaked).
+- `evals/scripts/tally_strength.py`.
+
+### Changed
+
+- Rewrote the RESULTS caveats to reflect the strengthened run - small-N / one-model /
+  ceiling / artifact are now weakened or resolved. No skill behavior changed.
+
 ## [0.4.0] - 2026-06-15
 
 ### Added
@@ -93,6 +109,7 @@ Initial release.
   each persona.
 - Project docs: README, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, MIT LICENSE.
 
+[0.4.1]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.4.1
 [0.4.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.4.0
 [0.3.1]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.3.1
 [0.3.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.3.0

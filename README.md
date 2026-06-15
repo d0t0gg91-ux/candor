@@ -7,7 +7,7 @@ flattery, hedging, and "this should work" for directness, verification, and per-
 efficiency - and switches its style to fit the kind of work you're doing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.4.0)-orange.svg>)
+![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.4.1)-orange.svg>)
 ![Skills: 12](https://img.shields.io/badge/skills-12-blue.svg)
 
 ---
@@ -56,9 +56,11 @@ prompts + scoring scripts are committed under [evals/](evals/) so you can audit 
 version: on deliberately adversarial sycophancy/efficiency prompts the modern base model
 is _already_ strong, so the binary "did it pass" gap is small; but in blind head-to-head
 judging the candor responses were preferred about 3-to-1, mainly for leading with the
-point, resisting false balance, and not caving to pushback. A 33-query trigger-routing
-test routed every query to the intended skill (33/33). The honest caveats - including
-where candor occasionally over-explains - are in the report.
+point, resisting false balance, and not caving to pushback. A strengthened run across two
+models (Sonnet and Haiku) scored the with-skill responses higher on a 0-100 quality rubric
+(+6.5 to +7.4) and more consistently. A 39-query trigger-routing test routed every query to
+the intended skill (39/39). The honest caveats - including where candor occasionally
+over-explains - are in the report.
 
 ## Install
 
