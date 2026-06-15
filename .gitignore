@@ -1,0 +1,24 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# Logs / scratch
+*.log
+.tmp/
+tmp/
+scratch/
+
+# Node (only if tooling is added later; this repo ships no runtime deps)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Claude Code local state (never commit installed-plugin cache or local settings)
+.claude/settings.local.json
+.claude-plugin/.cache/

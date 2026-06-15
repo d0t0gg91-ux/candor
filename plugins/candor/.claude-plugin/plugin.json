@@ -1,0 +1,20 @@
+{
+  "name": "candor",
+  "version": "0.1.0",
+  "description": "Anti-sycophancy behavioral modes for Claude Code: a shared candor core plus calibrated personas for coding, logical reasoning, creative work, and brainstorming.",
+  "author": {
+    "name": "d0t0gg91-ux"
+  },
+  "homepage": "https://github.com/d0t0gg91-ux/candor",
+  "repository": "https://github.com/d0t0gg91-ux/candor",
+  "license": "MIT",
+  "keywords": [
+    "anti-sycophancy",
+    "persona",
+    "coding",
+    "creative",
+    "brainstorming",
+    "directness",
+    "verification"
+  ]
+}

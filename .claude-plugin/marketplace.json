@@ -1,0 +1,31 @@
+{
+  "name": "candor",
+  "owner": {
+    "name": "d0t0gg91-ux"
+  },
+  "metadata": {
+    "description": "Anti-sycophancy behavioral modes for Claude Code - direct, verification-driven personas calibrated to coding, logical, creative, and brainstorming work."
+  },
+  "plugins": [
+    {
+      "name": "candor",
+      "source": "./plugins/candor",
+      "description": "Five behavioral skills (a shared anti-sycophancy core plus four work-mode personas) that make Claude more direct, verification-driven, and efficient.",
+      "version": "0.1.0",
+      "author": {
+        "name": "d0t0gg91-ux"
+      },
+      "license": "MIT",
+      "keywords": [
+        "anti-sycophancy",
+        "persona",
+        "candor",
+        "coding",
+        "creative",
+        "brainstorming",
+        "directness"
+      ],
+      "category": "productivity"
+    }
+  ]
+}
