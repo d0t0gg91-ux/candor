@@ -101,6 +101,53 @@ difference.
   its answer (an environment quirk of the test harness, not the model's normal behavior);
   it was one of the baseline losses and doesn't materially affect the totals.
 
+## Coverage update: the v0.3.0 modes
+
+A third batch (iteration-3) extends the benchmark to the five modes added after the
+original run - `candor-security`, `candor-debug`, `candor-architect`, `candor-decide`,
+`candor-data` - with two prompts each (10 total), same with-skill vs baseline method.
+
+- **Binary pass-rate:** with-skill **10/10**, baseline **10/10** - a complete ceiling.
+  The base model already handles these prompts (it spots the command injection, the
+  sunk-cost fallacy, the base-rate trap) without help, so pass/fail shows no gap.
+- **Blind preference:** candor preferred **8 of 10** (baseline 2, 0 ties), in line with
+  the original ~78%. The two baseline wins were security prompts where the candor
+  response buried the strongest recommendation ("just remove the endpoint") under code -
+  a useful, honest miss.
+
+So the v0.3.0 modes behave like the originals: no measurable gap on raw correctness
+(the base model is strong), a consistent ~80% edge in head-to-head quality.
+
+## Trigger-routing accuracy
+
+After adding `candor-debug` and `candor-writing`, the `candor-coding`, `candor-logic`,
+and `candor-creative` descriptions were tightened so the right persona loads. To check
+that empirically, 33 labeled queries (3 per mode plus cross-mode near-misses and a few
+matching nothing specific) were each routed by a judge given the eleven real
+descriptions: which single skill should auto-load?
+
+**Result: 33/33 correct (100%).** The confusion matrix is perfectly diagonal - every
+near-miss routed to the intended skill: "review this code" -> coding (not debug); a
+failing CI test -> debug (not coding); novel feedback -> creative (not writing); API docs
+-> writing (not creative); "conversions went up 5%, did it work?" -> data (not decide);
+"is this endpoint safe?" -> security (not coding); "how should I structure the services?"
+-> architect (not coding). The disambiguation holds.
+
+This is a _routing_ measure - a judge predicting which description matches - a faithful
+proxy for auto-triggering rather than the runtime mechanism itself. See the next note.
+
+## On run_loop.py (the description-trigger optimizer)
+
+The skill-creator ships `run_loop.py`, which measures real auto-triggering by spawning
+`claude -p` per query and watching whether the skill loads. It does not run on Windows:
+it uses `subprocess.Popen(["claude", ...])` (the `claude` entrypoint is a `.ps1`/`.cmd`
+shim, not a directly-spawnable executable, so every call fails with `WinError 2`) plus
+POSIX `select()` on a pipe (unsupported for pipes on Windows). Verified by running it -
+all queries returned a spurious "not triggered". The routing measurement above is the
+cross-platform substitute. To run the real optimizer, use a macOS/Linux (or WSL)
+checkout: `python -m scripts.run_loop --eval-set <set> --skill-path
+plugins/candor/skills/<skill> --model <id> --report none`.
+
 ## Reproducing
 
 The harness (eval prompts, the with-skill/baseline runner, the blind grader, the

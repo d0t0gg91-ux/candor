@@ -4,6 +4,23 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2026-06-15
+
+### Added
+
+- **Benchmark coverage for the v0.3.0 modes** (`evals/prompts/iteration-3.json`):
+  security, debug, architect, decide, and data, with results folded into
+  `docs/evals/RESULTS.md` (binary 10/10 vs 10/10; blind preference 8-2 for candor).
+- **Trigger-routing accuracy test** (`evals/prompts/routing.json`,
+  `evals/scripts/tally_routing.py`): 33 labeled queries routed against the eleven real
+  descriptions - **33/33 correct**, confirming the v0.3.0 trigger disambiguation holds.
+
+### Notes
+
+- Documented that the skill-creator's `run_loop.py` trigger optimizer does not run on
+  Windows (POSIX `select` on a pipe; non-spawnable `claude` shim); the routing test is
+  the cross-platform substitute. No skill behavior changed in this release.
+
 ## [0.3.0] - 2026-06-15
 
 ### Added
@@ -65,6 +82,7 @@ Initial release.
   each persona.
 - Project docs: README, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, MIT LICENSE.
 
+[0.3.1]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.3.1
 [0.3.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.3.0
 [0.2.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.2.0
 [0.1.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.1.0

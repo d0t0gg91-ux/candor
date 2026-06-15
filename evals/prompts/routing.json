@@ -1,0 +1,167 @@
+[
+  {
+    "id": 0,
+    "q": "review this React component for code quality and naming before I merge it",
+    "expected": "candor-coding"
+  },
+  {
+    "id": 1,
+    "q": "implement a function that debounces another function with a configurable delay",
+    "expected": "candor-coding"
+  },
+  {
+    "id": 2,
+    "q": "refactor this module to remove the duplicated validation logic",
+    "expected": "candor-coding"
+  },
+  {
+    "id": 3,
+    "q": "my test passes locally but fails in CI with a null pointer, help me find why",
+    "expected": "candor-debug"
+  },
+  {
+    "id": 4,
+    "q": "this function returns undefined sometimes and I can't figure out the cause",
+    "expected": "candor-debug"
+  },
+  {
+    "id": 5,
+    "q": "the app crashes intermittently with a null error, how do I track it down",
+    "expected": "candor-debug"
+  },
+  {
+    "id": 6,
+    "q": "is this argument valid: every swan I've seen is white, therefore all swans are white?",
+    "expected": "candor-logic"
+  },
+  {
+    "id": 7,
+    "q": "help me reason through whether the conclusion in this memo actually follows",
+    "expected": "candor-logic"
+  },
+  {
+    "id": 8,
+    "q": "stress-test the reasoning behind my claim that we should enter this market",
+    "expected": "candor-logic"
+  },
+  {
+    "id": 9,
+    "q": "give me honest feedback on the opening line of my novel",
+    "expected": "candor-creative"
+  },
+  {
+    "id": 10,
+    "q": "is the central metaphor in this poem actually working?",
+    "expected": "candor-creative"
+  },
+  {
+    "id": 11,
+    "q": "critique the pacing of my short story's climax",
+    "expected": "candor-creative"
+  },
+  {
+    "id": 12,
+    "q": "help me write clear documentation for this REST API",
+    "expected": "candor-writing"
+  },
+  {
+    "id": 13,
+    "q": "explain how OAuth works for our README, aimed at beginners",
+    "expected": "candor-writing"
+  },
+  {
+    "id": 14,
+    "q": "edit this paragraph in our onboarding guide so it's clearer and tighter",
+    "expected": "candor-writing"
+  },
+  {
+    "id": 15,
+    "q": "let's brainstorm different ways to grow our newsletter signups",
+    "expected": "candor-brainstorm"
+  },
+  {
+    "id": 16,
+    "q": "I'm stuck - what are some completely different approaches to this problem?",
+    "expected": "candor-brainstorm"
+  },
+  {
+    "id": 17,
+    "q": "generate a bunch of options for our app's onboarding flow before we pick one",
+    "expected": "candor-brainstorm"
+  },
+  {
+    "id": 18,
+    "q": "is this login endpoint safe from attackers?",
+    "expected": "candor-security"
+  },
+  {
+    "id": 19,
+    "q": "review this code specifically for security vulnerabilities",
+    "expected": "candor-security"
+  },
+  {
+    "id": 20,
+    "q": "we hash our passwords with MD5 - is that acceptable?",
+    "expected": "candor-security"
+  },
+  {
+    "id": 21,
+    "q": "how should I structure the services and boundaries for this new system?",
+    "expected": "candor-architect"
+  },
+  {
+    "id": 22,
+    "q": "should we use a monolith or microservices for this product?",
+    "expected": "candor-architect"
+  },
+  {
+    "id": 23,
+    "q": "design the data model and API boundaries for a booking system",
+    "expected": "candor-architect"
+  },
+  {
+    "id": 24,
+    "q": "I have 10 features and 2 weeks with a team of two - how do I decide what to build?",
+    "expected": "candor-decide"
+  },
+  {
+    "id": 25,
+    "q": "should we keep investing in this feature almost nobody uses?",
+    "expected": "candor-decide"
+  },
+  {
+    "id": 26,
+    "q": "help me prioritize our product roadmap for next quarter",
+    "expected": "candor-decide"
+  },
+  {
+    "id": 27,
+    "q": "our conversion rate went up 5% after the redesign - did it work?",
+    "expected": "candor-data"
+  },
+  {
+    "id": 28,
+    "q": "is our A/B test result actually statistically significant?",
+    "expected": "candor-data"
+  },
+  {
+    "id": 29,
+    "q": "our fraud model is 95% accurate - are we ready to deploy it?",
+    "expected": "candor-data"
+  },
+  {
+    "id": 30,
+    "q": "what's the capital of France?",
+    "expected": "none"
+  },
+  {
+    "id": 31,
+    "q": "thanks, that was really helpful!",
+    "expected": "none"
+  },
+  {
+    "id": 32,
+    "q": "can you just give me your honest, direct take without sugarcoating it?",
+    "expected": "candor-core"
+  }
+]

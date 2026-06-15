@@ -17,7 +17,8 @@ ce = Path(sys.argv[2])
 
 data = json.loads(out_path.read_text(encoding="utf-8"))
 verdicts = data.get("verdicts") or data.get("result", {}).get("verdicts")
-mapping = json.loads((ce / "compare" / "mapping.json").read_text(encoding="utf-8"))
+sub = sys.argv[3] if len(sys.argv) > 3 else "compare"
+mapping = json.loads((ce / sub / "mapping.json").read_text(encoding="utf-8"))
 
 rows = []
 counts = {"with": 0, "base": 0, "tie": 0, "null": 0}
@@ -60,7 +61,7 @@ summary = {
     "mean_confidence_when_decided": round(conf_sum / conf_n, 2) if conf_n else None,
     "rows": rows,
 }
-(ce / "compare" / "comparison-summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+(ce / sub / "comparison-summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
 print(f"n={summary['n']}  with-skill={counts['with']}  baseline={counts['base']}  tie={counts['tie']}  err={counts['null']}")
 print(f"win-rate among decided = {summary['win_rate_among_decided']}  mean confidence(decided) = {summary['mean_confidence_when_decided']}")
