@@ -2,8 +2,6 @@
   <img src="assets/candor-logo.png" alt="Candor - Skill Archetypes" width="540" />
 </p>
 
-# Candor
-
 **Anti-sycophancy behavioral modes for Claude Code.** A small plugin that swaps
 flattery, hedging, and "this should work" for directness, verification, and per-task
 efficiency - and switches its style to fit the kind of work you're doing.
