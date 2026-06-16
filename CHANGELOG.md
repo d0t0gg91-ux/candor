@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-06-15
+
+### Added
+
+- **Twelve plugin subagents** (`plugins/candor/agents/candor-*.md`). Installing candor now
+  also provides twelve named agents - `candor:candor-coding`, `candor:candor-debug`, and so
+  on - available in the `/agents` picker and for auto-delegation. Each ships the persona
+  from `AGENTS.md` as a real subagent (the agents auto-discover from `agents/`; no manifest
+  change needed).
+
 ## [0.4.2] - 2026-06-15
 
 ### Added
@@ -118,6 +128,7 @@ Initial release.
   each persona.
 - Project docs: README, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, MIT LICENSE.
 
+[0.5.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.5.0
 [0.4.2]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.4.2
 [0.4.1]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.4.1
 [0.4.0]: https://github.com/d0t0gg91-ux/candor/releases/tag/v0.4.0

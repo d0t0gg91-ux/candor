@@ -1,6 +1,6 @@
 {
   "name": "candor",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Anti-sycophancy behavioral modes for Claude Code: a shared candor core plus eleven work-mode personas (coding, logic, creative, brainstorm, security, debug, architect, writing, decide, data, curator).",
   "author": {
     "name": "d0t0gg91-ux"
