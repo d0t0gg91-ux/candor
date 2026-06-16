@@ -11,7 +11,7 @@
       "name": "candor",
       "source": "./plugins/candor",
       "description": "Twelve behavioral skills (a shared anti-sycophancy core plus eleven work-mode personas) that make Claude more direct, verification-driven, and efficient.",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "author": {
         "name": "d0t0gg91-ux"
       },

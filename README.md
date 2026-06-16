@@ -7,7 +7,7 @@ flattery, hedging, and "this should work" for directness, verification, and per-
 efficiency - and switches its style to fit the kind of work you're doing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.4.1)-orange.svg>)
+![Status: experimental](<https://img.shields.io/badge/status-experimental%20(v0.4.2)-orange.svg>)
 ![Skills: 12](https://img.shields.io/badge/skills-12-blue.svg)
 
 ---
@@ -46,7 +46,8 @@ from tipping into manufactured contrarianism.
 
 Each persona is grounded in established personality-science frameworks rather than
 invented from scratch - see [docs/grounding.md](docs/grounding.md) for the full
-rationale and the trait signatures behind each mode.
+rationale and the trait signatures behind each mode. Want each persona as a standalone
+agent? [AGENTS.md](AGENTS.md) has a copy-pasteable agent prompt for every mode.
 
 ## Does it actually work?
 
