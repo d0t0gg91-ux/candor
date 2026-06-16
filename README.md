@@ -133,8 +133,9 @@ See [SECURITY.md](SECURITY.md) for the full posture and how to report an issue.
 
 ## Status
 
-**v0.4.0 - experimental.** A prompt-level behavioral design with a committed benchmark
-behind it (see the results report), but not large-scale validated. Expect to tune the
+**v0.5.0 - experimental.** A prompt-level behavioral design with a committed benchmark
+behind it (see the results report), shipped as twelve skills and twelve subagents, but not
+large-scale validated. Expect to tune the
 personas to your own taste. Feedback and pull requests are welcome - see
 [CONTRIBUTING.md](CONTRIBUTING.md).
 
